@@ -29,7 +29,7 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => { console.log(`listening on port ${port}`) });
 
 const DB_URI = process.env.DB_URL || 'mongodb://localhost:27017/digibits';
-
+mongoose.set('useUnifiedTopology', true);
 mongoose.connect( DB_URI, {
     useNewUrlParser: true
   } );
@@ -48,4 +48,4 @@ mongoose.connect( DB_URI, {
       res.send(form_data)
   })
   
-  exports.mongoose = mongoose;
+ exports.mongoose = mongoose;
